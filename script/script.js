@@ -56,7 +56,7 @@ function playGame(playerMove) {
 
   updateScore();
     
-    localStorage.setItem('score',JSON.stringify(score));
+  localStorage.setItem('score',JSON.stringify(score));
   }
   
   function updateScore() {
@@ -78,4 +78,12 @@ function pickComputerMove() {
   }
 
   return computerMove;
+}
+
+function resetButton() {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  updateScore();
+  localStorage.setItem('score',JSON.stringify(score));
 }
