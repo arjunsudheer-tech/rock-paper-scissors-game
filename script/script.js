@@ -48,8 +48,19 @@ function playGame(playerMove) {
     score.ties++;
   }
 
-  document.querySelector('.js-result')
-    .innerHTML = result;
+  const finalResult = document.querySelector('.js-result');
+  finalResult.innerHTML = result;
+
+  finalResult.classList.remove('green' , 'red' , 'gray');
+
+  if(result === 'You Win') {
+    finalResult.classList.add('green');
+  } else if(result === 'You Lose') {
+    finalResult.classList.add('red');
+  } else if(result === 'Tie') {
+    finalResult.classList.add('gray');
+  }
+
 
   document.querySelector('.js-move')
     .innerHTML = 

@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <p>Rock Paper Scissors Game</p>
+  <div class="box">
+    <p class="title">Rock Paper Scissors Game</p>
       <button class="move-button" onclick="playGame('rock')">
         <img class="move-icon" src="images/rock-emoji.png" alt="rock-emoji">
       </button>
@@ -18,17 +19,18 @@
         <img class="move-icon" src="images/scissors-emoji.png" alt="scissors-emoji">
       </button>
   
-    <p class="js-result"></p>
+    <p class="js-result game-result"></p>
   
-    <p class="js-move"></p>
+    <p class="js-move game-move"></p>
 
-    <p class="js-score"></p>
+    <p class="js-score game-score"></p>
 
-    <p class="js-game-count"></p>
+    <p class="js-game-count game-count"></p>
 
-    <p class="js-win-percentage"></p>
+    <p class="js-win-percentage game-win-percentage"></p>
 
-    <button onclick="resetButton();">Reset Score</button>
+    <button class="reset-score-button" onclick="resetButton();">Reset Score</button>
+  </div>
 
   <script src="script/script.js"></script>
 </body>
