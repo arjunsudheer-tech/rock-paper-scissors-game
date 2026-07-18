@@ -52,7 +52,11 @@ function playGame(playerMove) {
     .innerHTML = result;
 
   document.querySelector('.js-move')
-    .innerHTML = `You picked ${playerMove} - Computer picked ${computerMove}`;
+    .innerHTML = 
+    `You
+      <img class="move-icon" src="images/${playerMove}-emoji.png">
+      <img class="move-icon" src="images/${computerMove}-emoji.png">
+    Computer`;
 
   updateScore();
     
@@ -62,6 +66,15 @@ function playGame(playerMove) {
   function updateScore() {
     document.querySelector('.js-score') 
       .innerHTML = `Wins : ${score.wins} , Losses : ${score.losses} , Ties : ${score.ties}`;
+
+    const gameCount = score.wins + score.losses + score.ties;
+    const winPercentage = (gameCount === 0 ) ? 0 : Math.round((score.wins / gameCount) * 100);
+
+    document.querySelector('.js-game-count')
+      .innerHTML = `Game Count : ${gameCount}`;
+
+    document.querySelector('.js-win-percentage')
+      .innerHTML = `Win Percentage : ${winPercentage}%`;
 }
 
 
