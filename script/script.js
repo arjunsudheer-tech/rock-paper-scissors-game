@@ -1,3 +1,9 @@
+const score = {
+  wins: 0,
+  losses: 0,
+  ties: 0
+};
+
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
   let result = '';
@@ -5,42 +11,49 @@ function playGame(playerMove) {
   if(playerMove === 'rock') {
     if(computerMove === 'rock') {
       result = 'Tie';
-      console.log(result);
     } else if(computerMove === 'paper') {
       result = 'You Lose';
-      console.log(result);
     } else if(computerMove === 'scissors') {
       result = 'You Win';
-      console.log(result);
     }
   }
 
   else if(playerMove === 'paper') {
     if(computerMove === 'rock') {
       result = 'You Win';
-      console.log(result);
     } else if(computerMove === 'paper') {
       result = 'Tie';
-      console.log(result);
     } else if(computerMove === 'scissors') {
       result = 'You Lose';
-      console.log(result);
     }
   }
 
   else if(playerMove === 'scissors') {
     if(computerMove === 'rock') {
       result = 'You Lose';
-      console.log(result);
     } else if(computerMove === 'paper') {
       result = 'You Win';
-      console.log(result);
     } else if(computerMove === 'scissors') {
       result = 'Tie';
-      console.log(result);
     }
   }
 
+  if(result === 'You Win') {
+    score.wins++;
+  } else if(result === 'You Lose') {
+    score.losses++;
+  } else if(result === 'Tie') {
+    score.ties++;
+  }
+
+  document.querySelector('.js-result')
+    .innerHTML = result;
+
+  document.querySelector('.js-move')
+    .innerHTML = `You picked ${playerMove} - Computer picked ${computerMove}`;
+
+  document.querySelector('.js-score') 
+    .innerHTML = `Wins : ${score.wins} , Losses : ${score.losses} , Ties : ${score.ties}`;
 }
 
 
